@@ -111,9 +111,14 @@ def process_movie_list(movie_list):
         # retrieve the storyline
         storyline = item['overview']
 
-        # retrieve the path to the poster image
-        img = "https://image.tmdb.org/t/p/w500" + item['poster_path']
-
+        # check if there is a path to the post image
+        if item['poster_path'] is None:
+            #use default img
+            img = "https://via.placeholder.com/220x344?text=" + title
+        else:
+            #retrieve the path to the poster image
+            img = "https://image.tmdb.org/t/p/w500" + item['poster_path']
+        
         # retrieve the unique movie ID as defined on TMdb
         movie_id = item['id']
 
@@ -135,8 +140,8 @@ def get_trailer(movie_id):
         a specific call to the API
     """
     
-    # initialize trailer URL variable
-    trailer = ""
+    # initialize trailer variable with a placeholder YouTube video
+    trailer = "https://www.youtube.com/watch?v=D-CQVnuiR1I"
 
     # structure the URL for the API request
     url = "https://api.themoviedb.org/3/movie/"
@@ -146,6 +151,11 @@ def get_trailer(movie_id):
     # send the request
     request = requests.get(url)
 
+    # check if the response is OK (200 status code)
+    if request.status_code != 200:
+        # return the placeholder trailer
+        return trailer
+    
     # convert the response to json format
     videos = request.json()
 
@@ -156,11 +166,6 @@ def get_trailer(movie_id):
             trailer = "http://youtube.com/watch?v=" + video['key']
             break
     
-    # check if no trailer is found
-    if "http://" not in trailer:
-        # use a default placeholder YouTube video for the trailer
-        trailer = "https://www.youtube.com/watch?v=D-CQVnuiR1I"
-
     return trailer
 
 # run the program
