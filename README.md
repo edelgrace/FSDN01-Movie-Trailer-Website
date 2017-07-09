@@ -8,6 +8,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 
 * [Python 3.6](https://www.python.org/downloads/)
 * [requests module](http://docs.python-requests.org/en/master/user/install/#install)
+* A public list on TMdb that only contains movies!
 
 ## How to Run
 
@@ -19,15 +20,17 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 $ python generate_pages.py
 ```
 
-Your default web browser should open with your generated web page!
+This will open your default web browser to the generated web page. By default, the program will use one of my own lists on TMdb.
 
 ### Use Your Own Public TMdb List
 
 ```
-$ python generate_pages.py [list-id]
+$ python generate_pages.py --list-id [list-id]
 ```
 
 To find the list ID of a TMdb list, look at the URL of your list. For example, `http://www.themoviedb.org/list/[list-id]`.
+
+If an invalid list ID is specified, then the program will exit.
 
 # Contact
 
