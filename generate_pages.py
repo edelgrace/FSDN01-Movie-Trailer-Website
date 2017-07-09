@@ -16,8 +16,6 @@ def get_movie_list(args):
     # initialize an empty list to store all movies
     movies = []
 
-    print(args)
-    
     # check if a list ID was specified at the command line
     if args is None:
         list_id = "27917"           # use the default list
@@ -46,8 +44,10 @@ def get_movie_list(args):
     # get the list details from the response
     description = movie_list['description']
     list_title = movie_list['name']
-    list_author = movie_list['name']
-
+    list_author = movie_list['created_by']['username']
+    
+    # get the list author
+        
     # process the list and put them into an array
     movies = process_movie_list(movie_list)
 
