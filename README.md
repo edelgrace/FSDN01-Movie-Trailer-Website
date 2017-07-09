@@ -8,6 +8,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 
 * [Python 3.6](https://www.python.org/downloads/)
 * [requests module](http://docs.python-requests.org/en/master/user/install/#install)
+* A public list on TMdb that only contains movies!
 
 ## How to Run
 
