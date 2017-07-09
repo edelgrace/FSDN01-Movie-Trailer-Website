@@ -25,7 +25,7 @@ This will open your default web browser to the generated web page. By default, t
 ### Use Your Own Public TMdb List
 
 ```
-$ python generate_pages.py [list-id]
+$ python generate_pages.py --list-id [list-id]
 ```
 
 To find the list ID of a TMdb list, look at the URL of your list. For example, `http://www.themoviedb.org/list/[list-id]`.
