@@ -20,7 +20,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 $ python generate_pages.py
 ```
 
-Your default web browser should open with your generated web page!
+This will open your default web browser to the generated web page. By default, the program will use one of my own lists on TMdb.
 
 ### Use Your Own Public TMdb List
 
