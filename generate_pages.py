@@ -6,9 +6,9 @@
 import fresh_tomatoes
 import requests
 import media
+import argparse
 
-
-def get_movie_list():
+def get_movie_list(args):
     """ This function pulls movies from a list on The Movie Database and
         creates Movie instances from the movies. The instances are then passed
         to a function to generate a web page
@@ -17,11 +17,27 @@ def get_movie_list():
     # initialize an empty list to store all movies
     movies = []
 
+    # check if a list ID was specified at the command line
+    if args is None:
+        list_id = "27917"           # use the default list
+    else:
+        list_id = args   # use the list specified
+
     # using themoviedb.org API
-    get_list = "https://api.themoviedb.org/4/list/27917?api_key=f99429863a7d560f97d2997d4b602460"  # NOQA
+    get_list = "https://api.themoviedb.org/4/list/"
+    get_list += list_id 
+    get_list += "?api_key=f99429863a7d560f97d2997d4b602460"
 
     # send request to API
     request = requests.get(get_list)
+
+    # check if the response is OK (200 status code)
+    if request.status_code != 200:
+        # the list ID specified was not valid 
+        print("The list ID " + list_id + " is not valid")
+        
+        # program exits
+        return
 
     # convert the response to json format
     movie_list = request.json()
@@ -108,4 +124,12 @@ def get_trailer(movie_id):
     return trailer
 
 
-get_movie_list()
+parser = argparse.ArgumentParser(description='Use your own TMdb list ID to generate a web page.')
+
+parser.add_argument('list_id', metavar='list-id', nargs='?', help='the list ID of the TMdb list')
+
+args = parser.parse_args()
+
+args = args.list_id
+
+get_movie_list(args)
