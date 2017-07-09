@@ -1,16 +1,13 @@
 # Movie Trailer Website
 
-This project generates a single page website in order to display movie trailers from any public list created on the website [The Movie Database (AKA TMdb)](http://themoviedatabsae.org).
+This project generates a single page website in order to display movie trailers from any *public* list created on the website [The Movie Database (AKA TMdb)](http://themoviedb.org).
 
 All this code is used for a project in Udacity's Full Stack Developer Nanodegree.
 
 # Requirements
 
-* Python 3.6
-* webbrowser module
-* requests module
-* os module
-* re module
+* [Python 3.6](https://www.python.org/downloads/)
+* [requests module](http://docs.python-requests.org/en/master/user/install/#install)
 
 # How to Run
 
@@ -20,9 +17,11 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 
 ```$ python generate_pages.py```
 
-## Use Your Own TMdb List
+## Use Your Own Public TMdb List
 
 ```$ python generate_pages.py [list-id]```
+
+To find the list ID of a TMdb list, look at the URL of your list. For example, `http://www.themoviedb.org/list/[list-id]`.
 
 # Contact
 
