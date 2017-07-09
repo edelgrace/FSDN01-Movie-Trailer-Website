@@ -18,11 +18,11 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 * Open a command line in the directory where all the files are located
 * Run the following command:
 
-> $ python generate_pages.py
+```$ python generate_pages.py```
 
 ## Use Your Own TMdb List
 
-> $ python generate_pages.py [list-id]
+```$ python generate_pages.py [list-id]```
 
 # Contact
 
