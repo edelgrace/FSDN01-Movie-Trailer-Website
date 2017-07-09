@@ -2,6 +2,7 @@
 
 import webbrowser
 
+
 class Movie():
     """ This class stores movie information """
 
