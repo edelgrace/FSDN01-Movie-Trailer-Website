@@ -1,10 +1,12 @@
-""" This module generates all the class Movie instances and puts them in a list.
+""" This module generates all the class Movie instances and puts them in a list
     The movie list is then used to generate a web page to display as
     a website """
+
 
 import fresh_tomatoes
 import requests
 import media
+
 
 def get_movie_list():
     """ This function pulls movies from a list on The Movie Database and
@@ -16,7 +18,7 @@ def get_movie_list():
     movies = []
 
     # using themoviedb.org API
-    get_list = "https://api.themoviedb.org/4/list/27917?api_key=f99429863a7d560f97d2997d4b602460" # NOQA
+    get_list = "https://api.themoviedb.org/4/list/27917?api_key=f99429863a7d560f97d2997d4b602460"  # NOQA
 
     # send request to API
     request = requests.get(get_list)
@@ -35,6 +37,7 @@ def get_movie_list():
     fresh_tomatoes.open_movies_page(movies, list_title, description)
 
     return
+
 
 def process_movie_list(movie_list):
     """ This function goes through each movie in the pulled list from
@@ -79,6 +82,7 @@ def process_movie_list(movie_list):
     # return the list of movies processed
     return movies
 
+
 def get_trailer(movie_id):
     """ This function grabs the YouTube trailer URL from the movie using
         a specific call to the API
@@ -98,9 +102,10 @@ def get_trailer(movie_id):
             trailer = "http://youtube.com/watch?v=" + video['key']
             break
 
-    if not "http://" in trailer:
+    if "http://" not in trailer:
         trailer = "https://www.youtube.com/watch?v=D-CQVnuiR1I"
 
     return trailer
+
 
 get_movie_list()
