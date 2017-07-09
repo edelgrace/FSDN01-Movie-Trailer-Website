@@ -123,11 +123,13 @@ def open_movies_page(movies, page_title, list_description):
     """ Generates HTML elements for each movie and compiles the HTML page
         into one """
 
-    # Create or overwrite the output file
+    # filename of the output file constructed from page_title
     file_name = page_title.replace(" ", "_")
 
+    # Create or overwrite the output file
     output_file = open(file_name + '.html', 'w')
 
+    # replace title placeholder with page_title
     rendered_header = MAIN_PAGE_HEAD.format(title=page_title)
 
     # Replace the movie tiles placeholder generated content
