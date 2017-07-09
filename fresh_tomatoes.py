@@ -72,7 +72,7 @@ MAIN_PAGE_CONTENT = '''
     <!-- Main Page Content -->
     <div class="container">
       <div class="page-header">
-        <h1>{list_title}</h1>
+        <h1>{list_title} <small>by <a href="http://www.themoviedb.org/u/{list_author}">{list_author}</a></small></h1>
         {description}
       </div>
     </div>
@@ -119,7 +119,7 @@ def create_movie_tiles_content(movies):
     return content
 
 
-def open_movies_page(movies, page_title, list_description):
+def open_movies_page(movies, page_title, author, list_description):
     """ Generates HTML elements for each movie and compiles the HTML page
         into one """
 
@@ -136,6 +136,7 @@ def open_movies_page(movies, page_title, list_description):
     rendered_content = MAIN_PAGE_CONTENT.format(
         movie_tiles=create_movie_tiles_content(movies),
         list_title=page_title,
+        list_author=author,
         description=list_description)
 
     # Output the file
