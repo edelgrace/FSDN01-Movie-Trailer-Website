@@ -1,6 +1,6 @@
 # Movie Trailer Website
 
-This project generates a single page website in order to display movie trailers from any public list created on the website [http://themoviedatabsae.org](The Movie Database AKA TMdb).
+This project generates a single page website in order to display movie trailers from any public list created on the website )http://themoviedatabsae.org)[The Movie Database AKA TMdb].
 
 All this code is used for a project in Udacity's Full Stack Developer Nanodegree.
 
@@ -25,5 +25,5 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 
 Encountered any problems? Feel free to contact me!
 
-Twitter: [http://twitter.com/edelgraceme](@edelgraceme)
+Twitter: (http://twitter.com/edelgraceme)[@edelgraceme]
 E-mail: edel.altares@gmail.com
