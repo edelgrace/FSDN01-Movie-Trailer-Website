@@ -30,6 +30,8 @@ $ python generate_pages.py [list-id]
 
 To find the list ID of a TMdb list, look at the URL of your list. For example, `http://www.themoviedb.org/list/[list-id]`.
 
+If an invalid list ID is specified, then the program will exit.
+
 # Contact
 
 Encountered any problems? Feel free to contact me!
