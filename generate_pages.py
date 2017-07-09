@@ -2,7 +2,6 @@
     The movie list is then used to generate a web page to display as
     a website """
 
-
 import fresh_tomatoes
 import requests
 import media
@@ -17,6 +16,8 @@ def get_movie_list(args):
     # initialize an empty list to store all movies
     movies = []
 
+    print(args)
+    
     # check if a list ID was specified at the command line
     if args is None:
         list_id = "27917"           # use the default list
@@ -42,15 +43,16 @@ def get_movie_list(args):
     # convert the response to json format
     movie_list = request.json()
 
-    # get the list description and list title from the response
+    # get the list details from the response
     description = movie_list['description']
     list_title = movie_list['name']
+    list_author = movie_list['name']
 
     # process the list and put them into an array
     movies = process_movie_list(movie_list)
 
     #
-    fresh_tomatoes.open_movies_page(movies, list_title, description)
+    fresh_tomatoes.open_movies_page(movies, list_title, list_author, description)
 
     return
 
@@ -70,9 +72,12 @@ def process_movie_list(movie_list):
     # go through each movie in the list
     for item in movie_list:
 
-        # retrieve the title
-        title = item['original_title']
-
+        # retrieve the title depending on whether or not it is a movie or show
+        if item['media_type'] == "movie":
+            title = item['original_title']
+        else:
+            title = item['original_name']
+        
         # convert any special characters in the title to html entitities
         title = title.encode("ascii", "xmlcharrefreplace")
         title = title.decode("utf-8")
@@ -126,7 +131,7 @@ def get_trailer(movie_id):
 
 parser = argparse.ArgumentParser(description='Use your own TMdb list ID to generate a web page.')
 
-parser.add_argument('list_id', metavar='list-id', nargs='?', help='the list ID of the TMdb list')
+parser.add_argument('--list-id', metavar='list_id', nargs='?', help='the list ID of the TMdb list')
 
 args = parser.parse_args()
 
