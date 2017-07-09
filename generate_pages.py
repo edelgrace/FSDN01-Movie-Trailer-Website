@@ -19,7 +19,7 @@ def run_program():
 
     # add an argument for the list ID
     arg_parser.add_argument(
-        '--list-id', metavar='list_id', nargs='?',  # optional argument  
+        '--list-id', metavar='list_id', nargs='?',  # optional argument
         help='the list ID of the TMdb list')
 
     # go through and parse the argument
@@ -45,9 +45,9 @@ def get_movie_list(args):
 
     # check if a list ID was specified at the command line
     if args is None:    # no list ID: use default list
-        list_id = "27917"           
+        list_id = "27917"
     else:               # list ID: use specified ID
-        list_id = args   
+        list_id = args
 
     # form the API request to get the list using the list ID
     get_list = "https://api.themoviedb.org/4/list/"
@@ -118,7 +118,7 @@ def process_movie_list(movie_list):
         else:
             #retrieve the path to the poster image
             img = "https://image.tmdb.org/t/p/w500" + item['poster_path']
-        
+
         # retrieve the unique movie ID as defined on TMdb
         movie_id = item['id']
 
@@ -139,7 +139,7 @@ def get_trailer(movie_id):
     """ This function grabs the YouTube trailer URL from the movie using
         a specific call to the API
     """
-    
+
     # initialize trailer variable with a placeholder YouTube video
     trailer = "https://www.youtube.com/watch?v=D-CQVnuiR1I"
 
@@ -155,7 +155,7 @@ def get_trailer(movie_id):
     if request.status_code != 200:
         # return the placeholder trailer
         return trailer
-    
+
     # convert the response to json format
     videos = request.json()
 
@@ -165,7 +165,7 @@ def get_trailer(movie_id):
         if video['site'] == "YouTube" and video['type'] == "Trailer":
             trailer = "http://youtube.com/watch?v=" + video['key']
             break
-    
+
     return trailer
 
 # run the program
