@@ -5,7 +5,7 @@ import webbrowser
 
 class Movie():
     """ This class stores information about movies
-        
+
         Attributes:
                 title (str): The movie title
                 storyline (str): A brief overview of the movie storyline
@@ -16,7 +16,7 @@ class Movie():
     def __init__(self, title, storyline, poster, trailer):
         """ The constructor will initialize the attributes of a movie instance
             using the given arguments
-            
+
             Args:
                 title (str): The movie title
                 storyline (str): A brief overview of the movie storyline
