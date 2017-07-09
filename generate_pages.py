@@ -2,10 +2,30 @@
     The movie list is then used to generate a web page to display as
     a website """
 
+import argparse
 import fresh_tomatoes
 import requests
 import media
-import argparse
+
+
+def run_program():
+    """ Parse the arguments from the command line and start up the
+        program using the arguments or the default values
+    """
+
+    arg_parser = argparse.ArgumentParser(
+        description='Use your own TMdb list ID to generate a web page.')
+
+    arg_parser.add_argument(
+        '--list-id', metavar='list_id', nargs='?',
+        help='the list ID of the TMdb list')
+
+    arguments = arg_parser.parse_args()
+
+    arguments = arguments.list_id
+
+    get_movie_list(arguments)
+
 
 def get_movie_list(args):
     """ This function pulls movies from a list on The Movie Database and
@@ -24,7 +44,7 @@ def get_movie_list(args):
 
     # using themoviedb.org API
     get_list = "https://api.themoviedb.org/4/list/"
-    get_list += list_id 
+    get_list += list_id
     get_list += "?api_key=f99429863a7d560f97d2997d4b602460"
 
     # send request to API
@@ -32,9 +52,9 @@ def get_movie_list(args):
 
     # check if the response is OK (200 status code)
     if request.status_code != 200:
-        # the list ID specified was not valid 
+        # the list ID specified was not valid
         print("The list ID " + list_id + " is not valid")
-        
+
         # program exits
         return
 
@@ -45,14 +65,13 @@ def get_movie_list(args):
     description = movie_list['description']
     list_title = movie_list['name']
     list_author = movie_list['created_by']['username']
-    
-    # get the list author
-        
+
     # process the list and put them into an array
     movies = process_movie_list(movie_list)
 
     #
-    fresh_tomatoes.open_movies_page(movies, list_title, list_author, description)
+    fresh_tomatoes.open_movies_page(movies, list_title,
+                                    list_author, description)
 
     return
 
@@ -77,7 +96,7 @@ def process_movie_list(movie_list):
             title = item['original_title']
         else:
             title = item['original_name']
-        
+
         # convert any special characters in the title to html entitities
         title = title.encode("ascii", "xmlcharrefreplace")
         title = title.decode("utf-8")
@@ -128,13 +147,5 @@ def get_trailer(movie_id):
 
     return trailer
 
-
-parser = argparse.ArgumentParser(description='Use your own TMdb list ID to generate a web page.')
-
-parser.add_argument('--list-id', metavar='list_id', nargs='?', help='the list ID of the TMdb list')
-
-args = parser.parse_args()
-
-args = args.list_id
-
-get_movie_list(args)
+# run the program
+run_program()
