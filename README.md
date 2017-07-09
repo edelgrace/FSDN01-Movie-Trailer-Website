@@ -15,8 +15,8 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 # How to Run
 
 * Download the source code 
-* Open a command line in the directory where all the filies are located
-* Run the following commandL:
+* Open a command line in the directory where all the files are located
+* Run the following command:
 ''python generate_pages.py''
 
 ## Use Your Own TMdb List
