@@ -9,22 +9,36 @@ main_page_head = '''
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Fresh Tomatoes!</title>
-
+    <title>{title}</title>
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+'''
+   
+main_page_style='''   
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            font-family: Georgia, Times New Roman;
         }
+        
+        .page-header {
+            text-align: center;
+            text-transform: lowercase;
+            border-bottom-color: #A8A8A8;
+        }
+        
+        .page-header h1 {
+            font-style: italic;
+        }
+        
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
-            height: 480px;
         }
+        
         .hanging-close {
             position: absolute;
             top: -12px;
@@ -35,14 +49,26 @@ main_page_head = '''
             width: 100%;
             height: 100%;
         }
+        
+        .poster {
+            height: 220px;
+            border-radius: 50px;
+        }
+        
         .movie-tile {
             margin-bottom: 20px;
             padding-top: 20px;
+            padding-bottom: 20px;
         }
         .movie-tile:hover {
-            background-color: #EEE;
+            background-color: #F0F0F0;
             cursor: pointer;
         }
+        
+        .movie-tile h2 {
+            font-size: 1.3em;
+        }
+        
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -104,12 +130,9 @@ main_page_content = '''
 
     <!-- Main Page Content -->
     <div class="container">
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
-          </div>
-        </div>
+      <div class="page-header">
+        <h1>{list_title}</h1>
+        {description}
       </div>
     </div>
     <div class="container">
@@ -123,7 +146,7 @@ main_page_content = '''
 # A single movie entry html template
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
+    <img src="{poster_image_url}" class="poster" height="220">
     <h2>{movie_title}</h2>
 </div>
 '''
@@ -147,19 +170,26 @@ def create_movie_tiles_content(movies):
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id
         )
+        
     return content
 
 
-def open_movies_page(movies):
+def open_movies_page(movies, page_title, list_description):
     # Create or overwrite the output file
-    output_file = open('fresh_tomatoes.html', 'w')
+    file_name = page_title.replace(" ", "_")
+    
+    output_file = open(file_name + '.html', 'w')
 
+    rendered_header=main_page_head.format(title=page_title)
+    
     # Replace the movie tiles placeholder generated content
     rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies))
+        movie_tiles=create_movie_tiles_content(movies),
+        list_title=page_title,
+        description=list_description)
 
     # Output the file
-    output_file.write(main_page_head + rendered_content)
+    output_file.write(rendered_header + main_page_style + rendered_content)
     output_file.close()
 
     # open the output file in the browser (in a new tab, if possible)
