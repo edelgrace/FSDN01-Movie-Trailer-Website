@@ -1,0 +1,63 @@
+body {
+    padding-top: 80px;
+    font-family: Georgia, Times New Roman;
+}
+
+.page-header {
+    text-align: center;
+    text-transform: lowercase;
+    border-bottom-color: #A8A8A8;
+}
+
+.page-header h1 {
+    font-style: italic;
+}
+
+#trailer .modal-dialog {
+    margin-top: 200px;
+    width: 640px;
+}
+
+.hanging-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    z-index: 9001;
+}
+#trailer-video {
+    width: 100%;
+    height: 100%;
+}
+
+.poster {
+    height: 220px;
+    border-radius: 50px;
+}
+
+.movie-tile {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.movie-tile:hover {
+    background-color: #F0F0F0;
+    cursor: pointer;
+}
+
+.movie-tile h2 {
+    font-size: 1.3em;
+}
+
+.scale-media {
+    padding-bottom: 56.25%;
+    position: relative;
+}
+.scale-media iframe {
+    border: none;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+}
