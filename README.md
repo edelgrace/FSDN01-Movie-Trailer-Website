@@ -31,6 +31,10 @@ To find the list ID of a TMdb list, look at the URL of your list. For example, `
 
 If an invalid list ID is specified, then the program will exit.
 
+## Limitations
+
+* This will only retrieve the first page of your TMdb list
+
 # Contact
 
 Encountered any problems? Feel free to contact me!
