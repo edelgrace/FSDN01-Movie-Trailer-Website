@@ -79,6 +79,15 @@ MAIN_PAGE_CONTENT = '''
     <div class="container">
       {movie_tiles}
     </div>
+    <div class="container">
+      <div class="col-lg-12">
+          <div class="footer">
+            <a href="https://www.themoviedb.org"><img src="https://www.themoviedb.org/assets/static_cache/bb45549239e25f1770d5f76727bcd7c0/images/v4/logos/408x161-powered-by-rectangle-blue.png" alt="Powered by TMDb"></a>
+            <br />
+            <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+          </div>
+      </div>
+    </div>
   </body>
 </html>
 '''
