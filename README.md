@@ -13,7 +13,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 ## How to Run
 
 * [Install Python 3.6](https://www.python.org/downloads/) on your machine
-* Install the requests module using pip ([tutorial](http://docs.python-requests.org/en/master/user/install/#install))
+* Install the requests module by running the following command or following this [tutorial](http://docs.python-requests.org/en/master/user/install/#install)
 
 ```
 $ pip install requests
@@ -25,7 +25,7 @@ $ pip install requests
 * Run the following command:
 
 ```
-$ python generate_pages.py [api-key]
+$ python entertainment_center.py [api-key]
 ```
 
 This will open your default web browser to the generated web page. By default, the program will use one of my own lists on TMDb.
@@ -33,7 +33,7 @@ This will open your default web browser to the generated web page. By default, t
 ### Use Your Own Public TMDb List
 
 ```
-$ python generate_pages.py [api-key] --list-id [list-id]
+$ python entertainment_center.py [api-key] --list-id [list-id]
 ```
 
 To find the list ID of a TMDb list, look at the URL of your list. For example, `http://www.themoviedb.org/list/[list-id]`.
