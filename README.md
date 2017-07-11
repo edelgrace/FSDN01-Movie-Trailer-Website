@@ -12,14 +12,14 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 
 ## How to Run
 
-* [Install Python 3.6]((https://www.python.org/downloads/) on your machine
-* Install the requests module using pip ([tutorial](http://docs.python-requests.org/en/master/user/install/#install)
+* [Install Python 3.6](https://www.python.org/downloads/) on your machine
+* Install the requests module using pip ([tutorial](http://docs.python-requests.org/en/master/user/install/#install))
 
 ```
 $ pip install requests
 ```
 
-* Get an API key on TMDb ([tutorial](https://developers.themoviedb.org/3/getting-started))
+* Get an API key on [TMDb](https://themovedb.org) (register on their website and follow this [tutorial](https://developers.themoviedb.org/3/getting-started))
 * Clone or download the source code of this repository
 * Open a command line in the directory where all the files are located
 * Run the following command:
