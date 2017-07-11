@@ -8,7 +8,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 
 * [Python 3.6](https://www.python.org/downloads/)
 * [requests](http://docs.python-requests.org/en/master/user/install/#install) module
-* [API key](https://developers.themoviedb.org/3/getting-started) for The Movie DB
+* [API key](https://developers.themoviedb.org/3/getting-started) for TMDb
 
 ## How to Run
 
@@ -19,7 +19,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 $ pip install requests
 ```
 
-* Get an API key on [TMDb](https://themovedb.org) (register on their website and follow this [tutorial](https://developers.themoviedb.org/3/getting-started))
+* Get an API key on [TMDb](https://themoviedb.org) (register on their website and follow this [tutorial](https://developers.themoviedb.org/3/getting-started))
 * Clone or download the source code of this repository
 * Open a command line in the directory where all the files are located
 * Run the following command:
