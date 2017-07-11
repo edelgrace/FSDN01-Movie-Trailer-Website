@@ -16,7 +16,7 @@ All this code is used for a project in Udacity's Full Stack Developer Nanodegree
 * Upgrade pip in order to install the requests module by running the command below or following this [tutorial](https://pip.pypa.io/en/stable/installing/#upgrading-pip)
 
 ```
-python -m pip install -U pip
+$ python -m pip install -U pip
 ```
 
 * Install the requests module by running the command below or following this [tutorial](http://docs.python-requests.org/en/master/user/install/#install)
